@@ -1,0 +1,36 @@
+.loader {
+    @apply relative w-5 h-5 rounded bg-[#004ede] text-gray-700;
+    transform: rotateX(65deg) rotate(45deg);
+    animation: layers1 1s linear infinite alternate;
+    background: #0055de;
+}
+
+.loader:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(6, 139, 255, 0.365);
+    animation: layerTr 1s linear infinite alternate;
+    border-radius: inherit;
+}
+
+@keyframes layers1 {
+    0% {
+        box-shadow: 0px 0px 0 0px
+    }
+
+    90%,
+    100% {
+        box-shadow: 20px 20px 0 -4px
+    }
+}
+
+@keyframes layerTr {
+    0% {
+        transform: translate(0, 0) scale(1)
+    }
+
+    100% {
+        transform: translate(-25px, -25px) scale(1)
+    }
+}

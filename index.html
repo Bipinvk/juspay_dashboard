@@ -1,13 +1,115 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/src/assets/logo/logo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Meta Title & Description -->
+  <title>TestQ AI by Augusta Hitech - Accelerate QA with AI-Driven Test Intelligence</title>
+  <meta name="description"
+    content="Augusta Hitech’s TestQ AI accelerates QA with AI-driven test creation, automation, analytics, and CI/CD integration. Generate test steps for Cypress, Selenium, and Playwright with enterprise-grade security and advanced insights." />
+
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="TestQ AI by Augusta Hitech - Accelerate QA with AI-Driven Test Intelligence" />
+  <meta property="og:description"
+    content="Augusta Hitech’s TestQ AI accelerates QA with AI-driven test creation, automation, analytics, and CI/CD integration. Generate test steps for Cypress, Selenium, and Playwright with enterprise-grade security and advanced insights." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://testq-dev.augustahitech.com" />
+  <meta property="og:image" content="https://s6.imgcdn.dev/YiluWe.png" />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://www.augustahitech.com/#org",
+          "name": "Augusta Hitech",
+          "url": "https://www.augustahitech.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://testq-dev.augustahitech.com/assets/logo-_-emSzGY.png"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://testq-dev.augustahitech.com/#website",
+          "name": "TestQ AI",
+          "url": "https://testq-dev.augustahitech.com/",
+          "publisher": { "@id": "https://www.augustahitech.com/#org" }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://testq-dev.augustahitech.com/#webpage",
+          "url": "https://testq-dev.augustahitech.com/",
+          "name": "TestQ AI by Augusta Hitech — Accelerate QA with AI-Driven Test Intelligence",
+          "isPartOf": { "@id": "https://testq-dev.augustahitech.com/#website" },
+          "about": { "@id": "https://testq-dev.augustahitech.com/#product" },
+          "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://testq-dev.augustahitech.com/assets/logo-_-emSzGY.png"
+          },
+          "description": "Augusta Hitech’s TestQ AI accelerates QA with AI-driven test creation, automation, analytics, and CI/CD integration. Generate test steps for Cypress, Selenium, and Playwright with enterprise-grade security and advanced insights."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://testq-dev.augustahitech.com/#product",
+          "name": "TestQ AI",
+          "applicationCategory": "Quality Assurance, Testing",
+          "operatingSystem": "Cloud",
+          "url": "https://testq-dev.augustahitech.com/",
+          "publisher": { "@id": "https://www.augustahitech.com/#org" },
+          "featureList": [
+            "AI-powered test step generation from PBIs/BRDs/free-form text",
+            "Automation code generation for Cypress, Playwright, Selenium",
+            "Enterprise-grade security with encryption and SSO",
+            "Advanced analytics for coverage and performance",
+            "Smart documentation generation and maintenance",
+            "Seamless CI/CD and project tool integrations",
+            "Exploratory testing scenario suggestions"
+          ],
+          "softwareRequirements": [
+            "Cypress",
+            "Selenium",
+            "Playwright"
+          ],
+          "offers": {
+            "@type": "Offer",
+            "url": "https://testq-dev.augustahitech.com/#contact",
+            "category": "BusinessApplication",
+            "availability": "https://schema.org/InStock"
+          },
+          "potentialAction": {
+            "@type": "Action",
+            "name": "Request Demo",
+            "target": "https://testq-dev.augustahitech.com/#contact"
+          }
+        },
+        {
+          "@type": "ItemList",
+          "@id": "https://testq-dev.augustahitech.com/#features",
+          "name": "TestQ AI Features",
+          "itemListElement": [
+            { "@type": "ListItem", "position": 1, "name": "AI-Powered Generation" },
+            { "@type": "ListItem", "position": 2, "name": "Enterprise Security" },
+            { "@type": "ListItem", "position": 3, "name": "Multi-Framework Support" },
+            { "@type": "ListItem", "position": 4, "name": "Advanced Analytics" },
+            { "@type": "ListItem", "position": 5, "name": "Smart Documentation" },
+            { "@type": "ListItem", "position": 6, "name": "Seamless Integration" },
+            { "@type": "ListItem", "position": 7, "name": "Exploratory Testing" }
+          ]
+        }
+      ]
+    }
+    </script>
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>
