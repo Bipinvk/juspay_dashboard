@@ -52,7 +52,7 @@ const TopNav: React.FC = () => {
           <input
             type="text"
             placeholder="Search"
-            className="pl-10 pr-8 bg-secondaryBg  py-1 w-32 rounded-md text-sm placeholder-gray-500
+            className="pl-10 pr-8 bg-secondaryBg text-textColor py-1 w-32 rounded-md text-sm placeholder-gray-500
              dark:placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
 

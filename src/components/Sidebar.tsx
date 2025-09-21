@@ -34,7 +34,7 @@ import ByeWind from "../assets/logo/ByeWind.png";
 import { ChevronDown, ChevronRight } from "lucide-react";
 
 const menuItems = [
-  { id: "overview", label: "Overview", category: "favorites", dot: true },
+  { id: "orderlist", label: "Overview", category: "favorites", dot: true },
   { id: "projects", label: "Projects", category: "favorites", dot: true },
   {
     id: "dashboard",
