@@ -8,9 +8,12 @@ import sun from "../assets/topnav/sun.svg";
 import bell from "../assets/topnav/bell.svg";
 import togRight from "../assets/topnav/togRight.svg";
 import history from "../assets/topnav/history.svg";
+import { useTheme } from "../context/ThemeContext/ThemeContext";
+
 const TopNav: React.FC = () => {
+  const { theme, toggleTheme } = useTheme();
   return (
-    <div className="flex items-center justify-between px-4 py-3 border-b border-gray-200 bg-white">
+    <div className="bg-mainBg text-textColor flex items-center justify-between px-4 py-3 border-b ">
       <div className="flex items-center space-x-6">
         <div className="flex items-center space-x-4">
           <img src={togLeft}></img>
@@ -45,7 +48,7 @@ const TopNav: React.FC = () => {
 
         {/* Action Icons */}
         <div className="flex items-center  text-gray-500">
-          <button className="p-2 hover:text-gray-700">
+          <button className="p-2 hover:text-gray-700" onClick={toggleTheme}>
             <img src={sun} className="h-5 w-5" />
           </button>
           <button className="p-2 hover:text-gray-700">
