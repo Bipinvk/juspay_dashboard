@@ -236,7 +236,7 @@ const SearchableSelect: React.FC<SearchableSelectProps> = ({
                 'h-4 w-4 text-gray-400 transition-transform duration-200',
                 isOpen && 'rotate-180'
               )}
-              fill="none"
+              fill="currentColor"
               viewBox="0 0 24 24"
               stroke="currentColor"
             >

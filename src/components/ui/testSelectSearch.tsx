@@ -224,7 +224,7 @@ const TestSearchableSelect: React.FC<TestSearchableSelectProps> = ({
                                 'h-4 w-4 text-gray-400 transition-transform duration-200 flex-shrink-0',
                                 isOpen && 'rotate-180'
                             )}
-                            fill="none"
+                            fill="currentColor"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
                         >

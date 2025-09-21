@@ -14,6 +14,8 @@ export default {
         mainBg: "var(--main-bg)",
         secondaryBg: "var(--secondary-bg)",
         textColor: "var(--text-color)",
+        textSecondary: "var(--text-secondary)",
+        borderColor: "var(--border-color)",
       },
       keyframes: {
         shine: {

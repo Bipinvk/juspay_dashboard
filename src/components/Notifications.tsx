@@ -1,11 +1,6 @@
 // Notifications.tsx
 import React from "react";
-import {
-  Bug,
-  UserPlus,
-  BellRing,
-  Radio,
-} from "lucide-react"; // Example icons
+import { Bug, UserPlus, BellRing, Radio } from "lucide-react";
 import clsx from "clsx";
 
 const Notifications: React.FC = () => {
@@ -34,21 +29,21 @@ const Notifications: React.FC = () => {
   ];
 
   return (
-    <div className="h-screen bg-white p-4 border-l border-gray-200 overflow-y-auto">
+    <div className="h-screen bg-mainBg p-4 border-l border-borderColor overflow-y-auto text-textColor">
       {/* Notifications Section */}
       <div>
-        <h4 className="text-base font-semibold mb-3">Notifications</h4>
+        <h4 className="text-base font-semibold mb-3 text-textColor">Notifications</h4>
         <div className="space-y-4">
           {notifications.map((item, index) => {
             const Icon = item.icon;
             return (
               <div key={index} className="flex items-start space-x-3">
-                <div className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full">
-                  <Icon className="w-4 h-4 text-gray-600" />
+                <div className="w-8 h-8 flex items-center justify-center bg-blue-200/50 rounded-xl">
+                  <Icon className="w-4 h-4 text-textSecondary" />
                 </div>
                 <div className="flex flex-col text-sm">
-                  <span className="text-gray-700">{item.text}</span>
-                  <span className="text-xs text-gray-400">{item.time}</span>
+                  <span className="text-textColor">{item.text}</span>
+                  <span className="text-textSecondary text-xs">{item.time}</span>
                 </div>
               </div>
             );
@@ -58,18 +53,18 @@ const Notifications: React.FC = () => {
 
       {/* Activities Section */}
       <div className="mt-6">
-        <h4 className="text-base font-semibold mb-3">Activities</h4>
+        <h4 className="text-base font-semibold mb-3 text-textColor">Activities</h4>
         <div className="space-y-4">
           {activities.map((item, index) => {
             const Icon = item.icon;
             return (
               <div key={index} className="flex items-start space-x-3">
-                <div className="w-8 h-8 flex items-center justify-center bg-gray-100 rounded-full">
-                  <Icon className="w-4 h-4 text-gray-600" />
+                <div className="w-8 h-8 flex items-center justify-center bg-secondaryBg rounded-full">
+                  <Icon className="w-4 h-4 text-textSecondary" />
                 </div>
                 <div className="flex flex-col text-sm">
-                  <span className="text-gray-700">{item.text}</span>
-                  <span className="text-xs text-gray-400">{item.time}</span>
+                  <span className="text-textColor">{item.text}</span>
+                  <span className="text-textSecondary text-xs">{item.time}</span>
                 </div>
               </div>
             );
@@ -79,7 +74,7 @@ const Notifications: React.FC = () => {
 
       {/* Contacts Section */}
       <div className="mt-6">
-        <h4 className="text-base font-semibold mb-3">Contacts</h4>
+        <h4 className="text-base font-semibold mb-3 text-textColor">Contacts</h4>
         <div className="space-y-4">
           {contacts.map((contact, index) => (
             <div key={index} className="flex items-center space-x-3 text-sm">
@@ -91,7 +86,7 @@ const Notifications: React.FC = () => {
               >
                 {contact.name.charAt(0)}
               </div>
-              <span className="text-gray-700">{contact.name}</span>
+              <span className="text-textColor">{contact.name}</span>
             </div>
           ))}
         </div>

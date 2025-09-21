@@ -6,7 +6,7 @@ import OrderList from "../pages/OrderList";
 const AppRoutes = () => (
   <Routes>
     <Route path="/" element={<Layout />}>
-      <Route index element={<Dashboard />} />
+      <Route index path="/" element={<Dashboard />} />
       <Route path="orderlist" element={<OrderList />} />
     </Route>
   </Routes>

@@ -5,32 +5,41 @@
 html,
 body {
   scrollbar-width: thin;
-  /* For Firefox */
-  scrollbar-color: darkgrey y;
-  /* For Firefox */
+  transition: background 0.3s, color 0.3s;
 }
 
 body::-webkit-scrollbar {
   width: 0.1em;
 }
 
-body::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+body {
+  background: var(--main-bg);
+  color: var(--text-color);
+  transition: background 0.3s, color 0.3s;
 }
 
-body::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
 :root {
   --main-bg: #ffffff;
   --secondary-bg: rgba(28, 28, 28, 0.05);
   --text-color: #000000;
+  --text-secondary: rgba(0, 0, 0, 0.6);
+  --border-color: rgba(28, 28, 28, 0.1);
 }
 
 .dark {
-  --main-bg: rgba(28, 28, 28, 1); /* var(--white-100) */
-  --secondary-bg: rgba(255, 255, 255, 0.05); /* var(--Primary-Light) */
+  --main-bg: rgba(28, 28, 28, 1);
+  --secondary-bg: rgba(255, 255, 255, 0.05);
   --text-color: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Example usage for border */
+.border-theme {
+  border: 1px solid var(--border-color);
+  transition: border-color 0.3s;
 }

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 const OrderList = () => {
-  // Sample data matching the image
   const initialOrders = [
     {
       id: "CMB801",
@@ -86,144 +85,99 @@ const OrderList = () => {
   ];
 
   const [orders, setOrders] = useState(initialOrders);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(5);
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Filter orders based on search term
-  const filteredOrders = orders.filter(
-    (order) =>
-      order.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      order.user.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      order.project.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      order.address.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      order.date.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      order.status.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
-  // Pagination logic
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentOrders = filteredOrders.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(filteredOrders.length / itemsPerPage);
-
-  // Status colors
-  const statusColors = {
-    "In Progress": "text-blue-500",
-    Complete: "text-green-500",
-    Pending: "text-yellow-500",
-    Approved: "text-teal-500",
-    Rejected: "text-red-500",
+  const handleSearch = (e) => {
+    const term = e.target.value.toLowerCase();
+    setSearchTerm(term);
+    const filteredOrders = initialOrders.filter(
+      (order) =>
+        order.id.toLowerCase().includes(term) ||
+        order.user.toLowerCase().includes(term) ||
+        order.project.toLowerCase().includes(term) ||
+        order.address.toLowerCase().includes(term) ||
+        order.date.toLowerCase().includes(term) ||
+        order.status.toLowerCase().includes(term)
+    );
+    setOrders(filteredOrders);
   };
 
-  // Handle page change
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
-
-  // Handle search input change
-  const handleSearch = (e) => {
-    setSearchTerm(e.target.value);
-    setCurrentPage(1); // Reset to first page on search
+  const statusColors = {
+    "In Progress": "text-blue-600",
+    Complete: "text-green-600",
+    Pending: "text-orange-600",
+    Approved: "text-yellow-600",
+    Rejected: "text-red-600",
   };
 
   return (
-    <div className=" min-h-screen">
+    <div className="container bg-mainBg mx-auto p-4 text-textColor">
       <div className="flex justify-between items-center mb-4">
-        <h2 className=" font-normal text-gray-800">Order List</h2>
-        <div className="flex space-x-2">
-          <button className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-            +
-          </button>
-          <button className="bg-gray-300 text-gray-800 px-4 py-2 rounded hover:bg-gray-400">
-            |||
-          </button>
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={handleSearch}
-            className="border rounded px-3 py-2"
-          />
-        </div>
+        <h2 className="text- font-normal">Order List</h2>
       </div>
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
-        <table className="w-full">
-          <thead className="bg-gray-50">
-            <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Order ID
+      <div className="flex justify-between items-center mb-4 bg-secondaryBg p-1 rounded-md">
+        <div className="flex space-x-2">
+          <button className=" text-textColor px-4 py-2 rounded">
+            +{" "}
+          </button>
+          <button className=" text-textColor px-4 py-2 rounded">
+            ⋮
+          </button>
+        </div>
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={handleSearch}
+          className="p-2 border rounded bg-secondaryBg text-textColor border-borderColor"
+        />
+      </div>
+      <div className="overflow-x-auto">
+        <table className="w-full text-sm text-left text-textSecondary">
+          <thead className="text-sm text-textSecondary bg-secondaryBg font-normal">
+            <tr className="font-normal">
+              <th className="p-4">
+                <input
+                  type="checkbox"
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
+                />
               </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                User
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Project
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Address
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Date
-              </th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                Status
-              </th>
+              <th className="px-6 py-3 font-normal">Order ID</th>
+              <th className="px-6 py-3 font-normal">User</th>
+              <th className="px-6 py-3 font-normal">Project</th>
+              <th className="px-6 py-3 font-normal">Address</th>
+              <th className="px-6 py-3 font-normal">Date</th>
+              <th className="px-6 py-3 font-normal">Status</th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200">
-            {currentOrders.map((order) => (
-              <tr key={order.id} className="hover:bg-gray-50">
-                <td className="px-6 py-4 whitespace-nowrap">{order.id}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{order.user}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{order.project}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{order.address}</td>
-                <td className="px-6 py-4 whitespace-nowrap">{order.date}</td>
-                <td
-                  className={`px-6 py-4 whitespace-nowrap ${
-                    statusColors[order.status]
-                  }`}
-                >
-                  {order.status}
+          <tbody>
+            {orders.map((order) => (
+              <tr key={order.id} className="bg-mainBg text-textColor border-b border-gray-100 dark:border-white/10  hover:bg-secondaryBg">
+                <td className="w-4 p-4">
+                  <input
+                    type="checkbox"
+                    className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
+                  />
+                </td>
+                <td className="px-6 py-4">{order.id}</td>
+                <td className="px-6 py-4">{order.user}</td>
+                <td className="px-6 py-4">{order.project}</td>
+                <td className="px-6 py-4">{order.address}</td>
+                <td className="px-6 py-4">{order.date}</td>
+                <td className="px-6 py-4">
+                  <span
+                    className={statusColors[order.status] || "text-gray-600"}
+                  >
+                    {order.status}
+                  </span>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
-      <div className="mt-4 flex justify-between items-center">
-        <span className="text-sm text-gray-600">
-          Showing {indexOfFirstItem + 1} to{" "}
-          {Math.min(indexOfLastItem, filteredOrders.length)} of{" "}
-          {filteredOrders.length} entries
-        </span>
-        <div className="flex space-x-2">
-          <button
-            onClick={() => paginate(currentPage - 1)}
-            disabled={currentPage === 1}
-            className="px-3 py-1 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 disabled:opacity-50"
-          >
-            &lt;
-          </button>
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-            <button
-              key={page}
-              onClick={() => paginate(page)}
-              className={`px-3 py-1 rounded ${
-                currentPage === page
-                  ? "bg-blue-500 text-white"
-                  : "bg-gray-300 text-gray-800 hover:bg-gray-400"
-              }`}
-            >
-              {page}
-            </button>
-          ))}
-          <button
-            onClick={() => paginate(currentPage + 1)}
-            disabled={currentPage === totalPages}
-            className="px-3 py-1 bg-gray-300 text-gray-800 rounded hover:bg-gray-400 disabled:opacity-50"
-          >
-            &gt;
-          </button>
-        </div>
+      <div className="flex justify-end mt-4">
+        <span className="text-gray-500">1 2 3 4 5</span>
       </div>
     </div>
   );
