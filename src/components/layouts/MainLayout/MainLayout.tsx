@@ -1,6 +1,5 @@
-// Layout.tsx
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Sidebar from "../../Sidebar";
 import Breadcrumb from "../../ui/Breadcrumb/breadCrumb";
 import Notifications from "../../Notifications";
@@ -11,16 +10,21 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = () => {
+  const location = useLocation();
+
+  // Hide notifications on orderlist page
+  const hideNotifications = location.pathname === "/orderlist";
+
   return (
     <div className="flex h-screen w-full overflow-hidden">
       <Sidebar collapsed={false} />
       <div className="flex-1 flex flex-col">
         <TopNav />
-        <div className="flex-1  overflow-y-auto">
+        <div className="flex-1 overflow-y-auto">
           <Outlet />
         </div>
       </div>
-      <Notifications />
+      {!hideNotifications && <Notifications />}
     </div>
   );
 };

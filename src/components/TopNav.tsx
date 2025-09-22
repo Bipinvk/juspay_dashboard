@@ -78,7 +78,7 @@ const TopNav: React.FC = () => {
           </button>
           <button className="p-2 hover:text-gray-700">
             <img
-              src={theme == "dark" ? togRight : whiteTogRight}
+              src={theme == "dark" ? whiteTogRight : togRight }
               className="h-5 w-5"
             />
           </button>

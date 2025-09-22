@@ -115,21 +115,17 @@ const OrderList = () => {
       <div className="flex justify-between items-center mb-4">
         <h2 className="text- font-normal">Order List</h2>
       </div>
-      <div className="flex justify-between items-center mb-4 bg-secondaryBg p-1 rounded-md">
+      <div className="flex justify-between items-center mb-4 bg-secondaryBg p-2 rounded-md h-9">
         <div className="flex space-x-2">
-          <button className=" text-textColor px-4 py-2 rounded">
-            +{" "}
-          </button>
-          <button className=" text-textColor px-4 py-2 rounded">
-            ⋮
-          </button>
+          <button className="text-textColor px-3 py-1 rounded text-sm h-7">+ </button>
+          <button className="text-textColor px-3 py-1 rounded text-sm h-7">⋮</button>
         </div>
         <input
           type="text"
           placeholder="Search..."
           value={searchTerm}
           onChange={handleSearch}
-          className="p-2 border rounded bg-secondaryBg text-textColor border-borderColor"
+          className="p-1 border  rounded bg-secondaryBg text-textColor border-borderColor text-sm h-7"
         />
       </div>
       <div className="overflow-x-auto">
@@ -152,7 +148,10 @@ const OrderList = () => {
           </thead>
           <tbody>
             {orders.map((order) => (
-              <tr key={order.id} className="bg-mainBg text-textColor border-b border-gray-100 dark:border-white/10  hover:bg-secondaryBg">
+              <tr
+                key={order.id}
+                className="bg-mainBg text-textColor border-b border-gray-100 dark:border-white/10  hover:bg-secondaryBg"
+              >
                 <td className="w-4 p-4">
                   <input
                     type="checkbox"
@@ -177,7 +176,35 @@ const OrderList = () => {
         </table>
       </div>
       <div className="flex justify-end mt-4">
-        <span className="text-gray-500">1 2 3 4 5</span>
+        <nav
+          className="inline-flex rounded-md shadow-sm"
+          aria-label="Pagination"
+        >
+          <button
+            className="px-3 py-1 rounded-l-md border border-borderColor bg-secondaryBg text-textSecondary hover:bg-mainBg focus:outline-none"
+            disabled
+          >
+            &lt;
+          </button>
+          <button className="px-3 py-1 border-t border-b border-borderColor bg-mainBg text-textColor font-semibold hover:bg-secondaryBg focus:outline-none">
+            1
+          </button>
+          <button className="px-3 py-1 border-t border-b border-borderColor bg-secondaryBg text-textSecondary hover:bg-mainBg focus:outline-none">
+            2
+          </button>
+          <button className="px-3 py-1 border-t border-b border-borderColor bg-secondaryBg text-textSecondary hover:bg-mainBg focus:outline-none">
+            3
+          </button>
+          <button className="px-3 py-1 border-t border-b border-borderColor bg-secondaryBg text-textSecondary hover:bg-mainBg focus:outline-none">
+            4
+          </button>
+          <button className="px-3 py-1 border-t border-b border-borderColor bg-secondaryBg text-textSecondary hover:bg-mainBg focus:outline-none">
+            5
+          </button>
+          <button className="px-3 py-1 rounded-r-md border border-borderColor bg-secondaryBg text-textSecondary hover:bg-mainBg focus:outline-none">
+            &gt;
+          </button>
+        </nav>
       </div>
     </div>
   );

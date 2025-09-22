@@ -35,9 +35,9 @@ import { ChevronDown, ChevronRight } from "lucide-react";
 
 const menuItems = [
   { id: "orderlist", label: "Overview", category: "favorites", dot: true },
-  { id: "projects", label: "Projects", category: "favorites", dot: true },
+  { id: "project", label: "Projects", category: "favorites", dot: true },
   {
-    id: "dashboard",
+    id: "default",
     label: "Default",
     icons: { light: dashboardIcon, dark: whiteDashboardIcon },
     category: "misc",
@@ -190,13 +190,13 @@ export default function Sidebar({ collapsed }: { collapsed: boolean }) {
                             return newSet;
                           });
                         } else {
-                          navigate(`/`);
+                          navigate(`/${item.id}`);
                         }
                       }}
                       title={collapsed ? item.label : ""}
                       className={`relative w-full flex items-center ${item.selected ? "gap-4" : ""} rounded-md text-sm font-normal transition-colors ${
                         collapsed ? "justify-center py-1" : "py-1 space-x-2"
-                      } ${isActive ? "text-blue-600 border-l-2 border-blue-600" : "hover:bg-secondaryBg hover:text-textColor"}`}
+                      } ${isActive ? "text-blue-600 " : "hover:bg-secondaryBg hover:text-textColor"}`}
                     >
                       {!collapsed && showArrow ? (
                         <span className={`${isActive ? "text-blue-600" : "text-textSecondary"}`}>
